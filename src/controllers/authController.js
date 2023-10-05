@@ -26,6 +26,9 @@ router.post('/register', async (req, res) => {
    }
 
     const user = await UserModel.create(req.body);
+    return res.status(200).json({
+        message: "Usuario cadastrado com sucesso!"
+    })
 
     user.password = undefined;
 

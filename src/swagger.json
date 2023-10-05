@@ -1,0 +1,85 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "API de controle de promoções",
+    "description": "Essa API tem como objetivo a manipulação das ofertas",
+    "termsOfService": "http://localhost:3000/termos",
+    "contact": {
+      "email": "capic.2022118TADS0030@aluno.ifpi.edu.br"
+    },
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/register": {
+      "post": {
+        "summary": "Registro de um novo usuario",
+        "description": "Essa rota ficará responsavel pelo registro  de novos usuarios",
+        "tags": ["User"],
+        "security": [{"bearerAuth": []}],
+        "requestBody": {
+          "content": {
+            "application/Json": {
+              "schema": {
+                "$ref": "#/components/schemas/User"
+              },
+              "examples": {
+                "User": {
+                    "value": {
+                        "name": "Gabriel Santos",
+                        "email": "test123@exemplo.com",
+                        "password": "senhateste123",
+                        "Date": "Tue Aug 23 2022 14:47:12 GMT-0700"
+                    }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+            "400": {
+                "description": "already registered user"
+            },
+            "200": {
+                "description": "OK",
+                "content": {
+                    "application/Json": {
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/components/schemas/User"
+                        }    
+                     }   
+                }
+            }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "User": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "String"
+          },
+          "email": {
+            "type": "String"
+          },
+          "password": {
+            "type": "String"
+          },
+          "createdAt": {
+            "type": "Date"
+          }
+        }
+      }
+    },
+     "securitySchemes": {
+        "bearerAuth": {
+            "type": "http",
+            "scheme": "bearer",
+            "bearerFormat": "JWT"
+        }
+    }
+  }
+}
