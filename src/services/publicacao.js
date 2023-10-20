@@ -25,16 +25,16 @@ class publiServices {
     }
 
     
-    // async deletePubli(pubId){
-    //     try{
-    //         const apagarpublicacao = await this.PubSchema.findByIdAndDelete(pubId);
+    async deletePubli(pubId){
+        try{
+            const apagarpublicacao = await this.PubSchema.findByIdAndDelete(pubId);
             
-    //         return apagarpublicacao
-    //     }catch(error) {
-    //         console.log("Erro ao apagar publicação", error);
-    //         throw error;
-    //     }
-    // }
+            return apagarpublicacao
+        }catch(error) {
+            console.log("Erro ao apagar publicação", error);
+            throw error;
+        }
+    }
 
 }
 

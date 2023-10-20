@@ -27,9 +27,13 @@ router.post('/listar', async (req,res) => {
    
 });
 
-// router.delete('/apagar:id', async (req,res) => {
-//     try {
-//         const {pubId} = postService.document.id
-//         const publicacao = postService.deletePubli(pubId)
-//     }
-// }) 
+router.delete('/apagar:id', async (req,res) => {
+    try {
+        const {pubId} = req.params.id;
+        const publicacao = postService.deletePubli(pubId);
+
+        res.status(200).json({message: 'Publicação excluida com sucesso!', message})
+    }catch (error) {
+        res.status(500).json({error: 'Não foi possivel excluir a publicação, tente novamente mais tarde!',message: error.message})
+    }
+}) 
