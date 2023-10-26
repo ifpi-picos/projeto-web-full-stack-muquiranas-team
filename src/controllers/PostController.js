@@ -23,6 +23,7 @@ router.post('/listar', async (req,res) => {
         res.status(200).json(publicacao);
     }catch (error) {
         res.status(500).json({error: 'Erro ao buscar publicacoes', message: error.message });
+        res.status(404).json({error: 'Publicação não encontrada!'})
       }
    
 });
@@ -37,3 +38,12 @@ router.delete('/apagar:id', async (req,res) => {
         res.status(500).json({error: 'Não foi possivel excluir a publicação, tente novamente mais tarde!',message: error.message})
     }
 }) 
+
+
+
+
+
+
+
+
+
