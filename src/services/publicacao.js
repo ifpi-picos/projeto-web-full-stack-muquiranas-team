@@ -1,11 +1,11 @@
 class publiServices {
-    constructor(Pubschema){
-        this.PubSchema = PubSchema;
+    constructor(PubSchema){
+        this.pubSchema = PubSchema;
     }
 
     async createPubli(user, productName,productLink,productDescription) {
         try {
-           const publicacao = await this.Pubschema.create({user: user, productName: productName,productLink: productLink, productDescription: productDescription })
+           const publicacao = await this.pubschema.create({user: user, productName: productName,productLink: productLink, productDescription: productDescription })
            return publicacao
         } catch (error) {
             console.log('Erro ao criar publicação!');

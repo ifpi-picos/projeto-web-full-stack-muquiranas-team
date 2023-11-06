@@ -98,7 +98,7 @@
       }
     },
     "/listar": {
-      "post": {
+      "get": {
         "summary": "busca de uma promoção pelo nome",
         "description": "Essa rota terá a função de buscar uma promoção especifica",
         "tags": ["Post"],

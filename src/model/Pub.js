@@ -20,6 +20,6 @@ const PubSchema = new mongoose.Schema({
   },
 });
 
-const Publi = mongoose.model(PubSchema);
+const Publi = mongoose.model("Publi", PubSchema);
 
 module.exports = Publi;
