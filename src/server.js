@@ -10,7 +10,7 @@ const cors = require('cors');
 app.use(cors({
   origin: '*',
   methods: ['GET', 'POST'],
-  headers: ['Content-Type', 'Authorization']
+  headers: ['Content-Type', 'Aplication JSON']
 }));
 
 const port = process.env.PORT || 3000;
