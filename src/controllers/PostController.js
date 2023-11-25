@@ -6,18 +6,13 @@ const router = express.Router();
 const postService = new PostService(PostModel);
 
 router.post("/postagem", async (req, res) => {
+ 
   try {
     const { user, productName, productLink, productDescription } = req.body;
-    const publicacao = await mongoose.model("publicacao", PubSchema);
-
-    publicacao.postService.createPubli(
-      user,
-      productName,
-      productLink,
-      productDescription
-    );
-    //const publicacao = await postService.createPubli(user, productName, productLink, productDescription);
-
+    console.log(user,productName,productLink,productDescription);
+   
+    const publicacao = await postService.createPubli(user, productName, productLink, productDescription);
+      
     res
       .status(201)
       .json({ message: "Publicação criada com sucesso", publicacao });

@@ -25,7 +25,8 @@ const UserSchema = new mongoose.Schema({
 
 UserSchema.pre("save", async function (next){
   const hash = await bccryptjs.hash(this.password, 10);
-  this.password = hash
+  this.password = hash;
+  this._id = new mongoose.Types.ObjectId();
 })
 
 const User = mongoose.model("User", UserSchema);
