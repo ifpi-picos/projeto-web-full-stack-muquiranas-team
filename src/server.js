@@ -5,7 +5,13 @@ const PostController = require("./controllers/PostController");
 const swagger = require('swagger-ui-express');
 const swaggerDocs = require("./swagger.json");
 const swaggerUi = require('swagger-ui-express');
+const cors = require('cors');
 
+app.use(cors({
+  origin: '*',
+  methods: ['GET', 'POST'],
+  headers: ['Content-Type', 'Authorization']
+}));
 
 const port = process.env.PORT || 3000;
 const authenticateMiddleware = require ("./middlewares/authenticate")
