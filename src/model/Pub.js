@@ -18,6 +18,11 @@ const PubSchema = new mongoose.Schema({
   productDescription: {
     type: String,
   },
+
+  favorited: {
+    type: Boolean,
+    default: false,
+  },
 });
 
 const Publi = mongoose.model("Publi", PubSchema);
