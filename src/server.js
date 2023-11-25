@@ -7,11 +7,8 @@ const swaggerDocs = require("./swagger.json");
 const swaggerUi = require('swagger-ui-express');
 const cors = require('cors');
 
-app.use(cors({
-  origin: '*',
-  methods: ['GET', 'POST'],
-  headers: ['Content-Type', 'Aplication JSON']
-}));
+
+
 
 const port = process.env.PORT || 3000;
 const authenticateMiddleware = require ("./middlewares/authenticate")
@@ -30,6 +27,12 @@ app.use("/auth", authController)
 app.use("/admin", authenticateMiddleware, AdminController)
 app.use("/post",PostController); 
 
+app.use(cors({
+    origin: '*',
+    methods: ['GET', 'POST'],
+    headers: ['Content-Type', 'Aplication json']
+  }));
+  
 app.listen(port, () => {
     console.log('Server is running at port 3000!');
 });
