@@ -10,7 +10,7 @@ const PORT = process.env.PORT || 3000
 
 mongoose.set("strictQuery", true)
 mongoose
-.connect("mongodb+srv://Admindatabase01:senhaadm@avsdatebase.z4al7nb.mongodb.net/?retryWrites=true&w=majority&appName=AtlasApp", {})  
+.connect("mongodb+srv://iago:iago1234@backavisai.tau1fbg.mongodb.net/?retryWrites=true&w=majority", {})  
 //.connect(`mongodb+srv://Admindatabase01:${process.env.DB_PASS}@avsdatebase.z4al7nb.mongodb.net/?retryWrites=true&w=majority&appName=AtlasApp`, )
   .then(() => {
     console.log("Conexão com MongoDB estabelecida com sucesso");

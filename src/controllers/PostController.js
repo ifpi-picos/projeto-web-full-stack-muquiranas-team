@@ -9,8 +9,6 @@ router.post("/postagem", async (req, res) => {
  
   try {
     const { user, productName, productLink, productDescription } = req.body;
-    console.log(user,productName,productLink,productDescription);
-   
     const publicacao = await postService.createPubli(user, productName, productLink, productDescription);
       
     res
@@ -24,11 +22,12 @@ router.post("/postagem", async (req, res) => {
 });
 
 router.get("/listar", async (req, res) => {
+
   try {
     const { productName } = req.body;
     const publicacao = await postService.selectPubli(productName);
-
     res.status(200).json(publicacao);
+    
   } catch (error) {
     res
       .status(500)
