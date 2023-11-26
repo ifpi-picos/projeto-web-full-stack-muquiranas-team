@@ -17,7 +17,7 @@ class publiServices {
 
     async selectPubli(productName) {
         try{
-            const publicacao = await this.pubSchema.findOne(productName);
+            const publicacao = await this.pubSchema.find(productName);
 
             return publicacao;
         }catch(error) {
