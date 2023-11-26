@@ -28,9 +28,8 @@ app.use("/admin", authenticateMiddleware, AdminController)
 app.use("/post",PostController); 
 
 app.use(cors({
-    origin: '*',
-    methods: ['GET', 'POST'],
-    headers: ['Content-Type', 'Aplication json']
+    origin: ["http://localhost:3000"],
+    methods: ["GET", "POST"],
   }));
   
 app.listen(port, () => {
