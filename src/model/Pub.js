@@ -3,6 +3,10 @@ const { ObjectId } = require("mongodb");
 const mongoose = require("../database").default;
 
 const PubSchema = new mongoose.Schema({
+  _id:{
+    type: ObjectId,
+  },
+  
   user: {
     type: String,
     required: true,

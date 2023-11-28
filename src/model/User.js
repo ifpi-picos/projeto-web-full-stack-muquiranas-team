@@ -2,6 +2,12 @@ const mongoose = require("../database");
 const bccryptjs = require("bcryptjs");
 
 const UserSchema = new mongoose.Schema({
+  publi:{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Publi",
+    required: false,
+  },
+  
   name: {
     type: String,
     required: true,
