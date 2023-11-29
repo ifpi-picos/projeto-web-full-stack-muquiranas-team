@@ -18,8 +18,13 @@ const PubSchema = new mongoose.Schema({
   productDescription: {
     type: String,
   },
-
-  favorited: {
+ 
+  /*productImg: {
+    type: String,
+    require: false,
+},*/
+  
+favorited: {
     type: Boolean,
     default: false,
   },
@@ -29,6 +34,8 @@ const PubSchema = new mongoose.Schema({
     default: Date.now,
   },
  
+
+
 });
 
 const Publi = mongoose.model("Publi", PubSchema);
