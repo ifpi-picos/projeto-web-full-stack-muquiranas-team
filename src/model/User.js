@@ -2,6 +2,8 @@ const mongoose = require("../database");
 const bccryptjs = require("bcryptjs");
 
 const UserSchema = new mongoose.Schema({
+
+  
   publi:{
     type: mongoose.Schema.Types.ObjectId,
     ref: "Publi",
@@ -27,6 +29,14 @@ const UserSchema = new mongoose.Schema({
     type: Date,
     default: Date.now,
   },
+
+  userPosts: {
+    type: Number,
+    default: 0,
+  },
+
+  
+
 });
 
 UserSchema.pre("save", async function (next){

@@ -2,11 +2,7 @@ const { ObjectId } = require("mongodb");
 
 const mongoose = require("../database").default;
 
-const PubSchema = new mongoose.Schema({
-  _id:{
-    type: ObjectId,
-  },
-  
+const PubSchema = new mongoose.Schema({ 
   user: {
     type: String,
     required: true,
@@ -32,6 +28,7 @@ const PubSchema = new mongoose.Schema({
     type: Date,
     default: Date.now,
   },
+ 
 });
 
 const Publi = mongoose.model("Publi", PubSchema);
