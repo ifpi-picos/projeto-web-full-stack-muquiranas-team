@@ -24,6 +24,9 @@ const UserSchema = new mongoose.Schema({
     required: true,
     select: false,
   },
+  favoritos: [
+    mongoose.Types.ObjectId
+  ],
   createdAt: {
     type: Date,
     default: Date.now,

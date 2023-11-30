@@ -2,6 +2,7 @@ const express = require('express');
 const authController = require("./controllers/authController");
 const AdminController = require("./controllers/AdminController");
 const PostController = require("./controllers/PostController");
+const FavController = require("./controllers/FavController");
 const swagger = require('swagger-ui-express');
 const swaggerDocs = require("./swagger.json");
 const swaggerUi = require('swagger-ui-express');
@@ -40,6 +41,7 @@ app.get("/termos", (req, res) => {
 app.use("/auth", authController)
 app.use("/admin", authenticateMiddleware, AdminController)
 app.use("/post",PostController); 
+app.use("/fav",FavController);
 
   
 app.listen(port, () => {
