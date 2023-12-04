@@ -2,10 +2,10 @@ const { ObjectId } = require("mongodb");
 
 const mongoose = require("../database").default;
 
-const PubSchema = new mongoose.Schema({ 
+const PubSchema = new mongoose.Schema({
   user: {
     type: String,
-    required: true,
+    required: false,
   },
   productName: {
     type: String,
@@ -18,22 +18,22 @@ const PubSchema = new mongoose.Schema({
   productDescription: {
     type: String,
   },
- 
-  /*productImg: {
+
+  imageUrl: {
     type: String,
-    require: false,
-},*/
-  
-favorited: {
+    required: true,
+  },
+
+  favorited: {
     type: Boolean,
     default: false,
   },
-  
+
   createdAt: {
     type: Date,
     default: Date.now,
   },
- 
+
 
 
 });
