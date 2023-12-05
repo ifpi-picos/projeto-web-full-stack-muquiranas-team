@@ -2,6 +2,7 @@ const PostService = require("../services/publicacao");
 const PostModel = require("../model/Pub");
 const express = require("express");
 const router = express.Router();
+const authMiddleware = require('../middlewares/authenticate');
 
 const postService = new PostService(PostModel);
 
@@ -56,6 +57,17 @@ router.delete("/apagar:id", async (req, res) => {
           "Não foi possivel excluir a publicação, tente novamente mais tarde!",
         message: error.message,
       });
+  }
+});
+
+
+router.get('/meus-posts', authMiddleware, async (req, res) => {
+  try {
+    const userId = req.userLogged.id; 
+    const publicacoes = await postService.selectPubliByUser(userId);
+    res.status(200).json(publicacoes);
+  } catch (error) {
+    res.status(500).json({ error: 'Erro ao buscar seus posts', message: error.message });
   }
 });
 

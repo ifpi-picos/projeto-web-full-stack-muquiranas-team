@@ -1,3 +1,5 @@
+const Publi = require("../model/Pub");
+
 class publiServices {
     constructor(PubSchema){
         this.pubSchema = PubSchema;
@@ -38,6 +40,18 @@ class publiServices {
         }
     }
 
+
+    async selectPubliByUser(userId) {
+        try {
+          // Use o método find para buscar todas as publicações onde o campo "user" é igual ao ID do usuário
+          const publicacoesDoUsuario = await Publi.find({ user: userId });
+    
+          return publicacoesDoUsuario;
+        } catch (error) {
+          throw error;
+        }
+      }
+    
 }
 
 module.exports = publiServices;
