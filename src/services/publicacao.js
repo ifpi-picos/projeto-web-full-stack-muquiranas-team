@@ -27,9 +27,9 @@ class publiServices {
     }
 
     
-    async deletePubli(pubId){
+    async deletePubli(id){
         try{
-            const apagarpublicacao = await this.pubSchema.findByIdAndDelete(pubId);
+            const apagarpublicacao = await this.pubSchema.findByIdAndDelete(id);
             
             return apagarpublicacao
         }catch(error) {

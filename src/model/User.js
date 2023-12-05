@@ -6,7 +6,7 @@ const UserSchema = new mongoose.Schema({
   publi:{
     type: mongoose.Schema.Types.ObjectId,
     ref: "Publi",
-    required: false,
+    required: true,
   },
   
   name: {
@@ -30,9 +30,10 @@ const UserSchema = new mongoose.Schema({
     default: Date.now,
   },
   
-  userPosts: {
+ userPosts: {
     type: Number,
     default: 0,
+    required: false,
   },
 
   

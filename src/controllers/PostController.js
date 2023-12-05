@@ -10,6 +10,7 @@ router.post("/postagem", async (req, res) => {
   try {
     const { user, productName, productLink, productDescription, imageUrl } = req.body;
     const publicacao = await postService.createPubli(user, productName, productLink, productDescription, imageUrl);
+    
       
     res
       .status(201)
@@ -38,9 +39,12 @@ router.get("/listar", async (req, res) => {
 
 router.delete("/apagar:id", async (req, res) => {
   try {
-    const { pubId } = req.params.id;
-    const publicacao = postService.deletePubli(pubId);
 
+    const  pubId  = req.params.id;
+
+      const id = pubId.substring(1);
+      postService.deletePubli(id);
+   
     res
       .status(200)
       .json({ message: "Publicação excluida com sucesso!", message });

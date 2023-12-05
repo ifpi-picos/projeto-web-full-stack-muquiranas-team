@@ -23,26 +23,36 @@ router.get("/favoritos", async (req, res) => {
   }
 });
 
-router.post("/favoritar", async (req,res) => {
+
+
+
+router.put("/favoritar", auth, async (req, res) => {
+  try { 
+    
+    const userId = req.userLogged.id; 
   
-  try{
-  const userId = req.body;
-  const user = await User.findOne({userId})
+    const user = await User.findById(userId);
 
-  const favId = req.body.favId;
-
-  const objectId = new ObjectId(favId);
+    const favId = req.body.favId;
 
 
-  const favoritos = user.favoritos.concat([objectId]);
-  await User.updateOne({ userId }, { favoritos: favoritos });
-
-  res.status(200).json({message: "favoritado com sucesso",message});
-  }catch (error){
-    res
-      .status(500).json({error:"Não foi possivel favoritar a publicação, tente novamente mais tarde!", message: error.message,});
+  
+    if (!user.favoritos.includes(favId)) {
+      user.favoritos.push(favId);
+      await user.save();
+      res.status(200).json({ message: "Favoritado com sucesso" });
+    } else {
+      res.status(400).json({ error: "Item já está nos favoritos" });
+    }
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({
+      error: "Não foi possível favoritar a publicação, tente novamente mais tarde!",
+      message: error.message,
+    });
   }
-})
-
+});
 
 module.exports = router;
+
+
