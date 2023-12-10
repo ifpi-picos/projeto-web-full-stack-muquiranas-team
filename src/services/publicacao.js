@@ -5,10 +5,10 @@ class publiServices {
         this.pubSchema = PubSchema;
     }
 
-    async createPubli(user, productName, productLink, productDescription, imageUrl) {
+    async createPubli(user, productName, productLink, productDescription, imageUrl, productPrice) {
         
         try {
-           const publicacao = await this.pubSchema.create({user: user, productName: productName,productLink: productLink, productDescription: productDescription, imageUrl: imageUrl})
+           const publicacao = await this.pubSchema.create({user: user, productName: productName,productLink: productLink, productDescription: productDescription, imageUrl: imageUrl, productPrice: productPrice})
            
            return publicacao
         } catch (error) {

@@ -9,8 +9,8 @@ const postService = new PostService(PostModel);
 router.post("/postagem", async (req, res) => {
  
   try {
-    const { user, productName, productLink, productDescription, imageUrl } = req.body;
-    const publicacao = await postService.createPubli(user, productName, productLink, productDescription, imageUrl);
+    const { user, productName, productLink, productDescription, imageUrl, productPrice } = req.body;
+    const publicacao = await postService.createPubli(user, productName, productLink, productDescription, imageUrl, productPrice);
     
       
     res

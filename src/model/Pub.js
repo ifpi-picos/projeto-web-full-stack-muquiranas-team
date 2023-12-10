@@ -18,6 +18,12 @@ const PubSchema = new mongoose.Schema({
   productDescription: {
     type: String,
   },
+
+  productPrice: {
+    type: Number,
+    required: true,
+  },
+
   imageUrl: {
     type: String,
     required: false,
