@@ -1,4 +1,3 @@
-// Esquema da publicação (PubSchema)
 const mongoose = require("../database").default;
 
 const PubSchema = new mongoose.Schema({
@@ -26,7 +25,7 @@ const PubSchema = new mongoose.Schema({
 
   imageUrl: {
     type: String,
-    required: false,
+    required: true,
   },
   favorited: {
     type: Boolean,
