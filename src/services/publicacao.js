@@ -5,10 +5,10 @@ class publiServices {
         this.pubSchema = PubSchema;
     }
 
-    async createPubli(user, productName, productLink, productDescription, imageUrl, productPrice) {
+    async createPubli(userName, user, productName, productLink, productDescription, imageUrl, productPrice) {
         
         try {
-           const publicacao = await this.pubSchema.create({user: user, productName: productName,productLink: productLink, productDescription: productDescription, imageUrl: imageUrl, productPrice: productPrice})
+           const publicacao = await this.pubSchema.create({userName: userName,user: user, productName: productName,productLink: productLink, productDescription: productDescription, imageUrl: imageUrl, productPrice: productPrice})
            
            return publicacao
         } catch (error) {
@@ -20,7 +20,6 @@ class publiServices {
     async selectPubli(productName) {
         try{
             const publicacao = await this.pubSchema.find(productName);
-
             return publicacao;
         }catch(error) {
             console.log("Publicação não encontrada", error);

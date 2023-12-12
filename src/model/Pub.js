@@ -1,10 +1,15 @@
 const mongoose = require("../database").default;
 
 const PubSchema = new mongoose.Schema({
+  userName: {
+    type: String,
+    required: false,
+  },
+  
   user: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "User",
-    required: true,
+    required: false,
   },
   productName: {
     type: String,
