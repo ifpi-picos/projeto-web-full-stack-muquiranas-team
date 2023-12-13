@@ -24,7 +24,7 @@ app.use(express.json());
         res.header("Access-Control-Allow-Origin","*");
         res.header("Access-Control-Allow-Methods","GET, POST, PUT, DELETE");
         res.header("Access-Control-Allow-Headers","Content-Type");
-        app.use(cors());
+        app.use(cors({origin: "*"}));
         next();
     })
 

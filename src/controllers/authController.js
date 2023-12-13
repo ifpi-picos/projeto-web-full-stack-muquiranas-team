@@ -9,6 +9,11 @@ const generateToken = (user = {}) => {
     {
       id: user.id,
       name: user.name,
+      email: user.email,
+      createdAt: user.createdAt,
+      userPosts: user.userPosts,
+      favoritos: user.favoritos,
+      
     },
     authConfig.secret,
     {
