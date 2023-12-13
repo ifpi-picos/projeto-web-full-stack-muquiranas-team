@@ -26,6 +26,7 @@ router.post("/postagem", async (req, res) => {
 router.get("/listar", async (req, res) => {
 
   try {
+
     const { productName } = req.body;
     const publicacao = await postService.selectPubli(productName);
     res.status(200).json(publicacao);
@@ -63,7 +64,7 @@ router.delete("/apagar:id", async (req, res) => {
 
 router.get('/meus-posts', authMiddleware, async (req, res) => {
   try {
-    const userId = req.userLogged.id; 
+    const userId = req.user.id; 
     const publicacoes = await postService.selectPubliByUser(userId);
     res.status(200).json(publicacoes);
   } catch (error) {

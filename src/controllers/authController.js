@@ -4,6 +4,7 @@ const UserModel = require("../model/User");
 const UserServices = require("../services/user");
 const jwt = require("jsonwebtoken");
 const authConfig = require("../config/auth.json");
+const moment = require("moment");
 const generateToken = (user = {}) => {
   return jwt.sign(
     {
@@ -13,7 +14,7 @@ const generateToken = (user = {}) => {
       createdAt: user.createdAt,
       userPosts: user.userPosts,
       favoritos: user.favoritos,
-      
+
     },
     authConfig.secret,
     {
