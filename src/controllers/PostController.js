@@ -64,12 +64,15 @@ router.delete("/apagar:id", async (req, res) => {
 
 router.get('/meus-posts', authMiddleware, async (req, res) => {
   try {
-    const userId = req.user.id; 
-    const publicacoes = await postService.selectPubliByUser(userId);
-    res.status(200).json(publicacoes);
+    console.log(req.body);
+     const userId = req.userLogged.id;
+     console.log(userId , 'userId');
+     const publicacoes = await postService.selectPubliByUser(userId);
+     res.status(200).json(publicacoes);
   } catch (error) {
-    res.status(500).json({ error: 'Erro ao buscar seus posts', message: error.message });
+     res.status(500).json({ error: 'Erro ao buscar seus posts', message: error.message });
   }
 });
+
 
 module.exports = router;

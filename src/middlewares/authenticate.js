@@ -1,11 +1,13 @@
 const jwt = require('jsonwebtoken');
+const User = require("../model/User");
+
 
 const authConfig = require('../config/auth.json')
 
 
 module.exports = (req, res, next) => {
    
-    const authHeader = req.headers?.authorization;
+    const authHeader = req.headers.authorization;
 
     if(!authHeader){
         return res.status(401).json({
@@ -33,25 +35,22 @@ module.exports = (req, res, next) => {
         })
     }
 
-    return jwt.verify(token, authConfig.secret, (err, decoded) => {
+    return jwt.verify(token, authConfig.secret, async (err, decoded) => {
         if(err){
             return res.status(401).json({
                 error: true,
                 message: "Token Invalido/expirado"
             })
         }
-        const { _id, name, email, createdAt, userPosts, favoritos } = decoded;
-        req.user = {
-            _id,
-            name,
-            email,
-            createdAt,
-            userPosts,
-            favoritos
-        };
-        
-        console.log(err);
-        console.log(decoded);
+
+        const user = await User.findOne({
+            _id: decoded.id,
+          });
+          
+           req.userLogged = user;
+      
+     
+        console.log(req.userLogged)
 
         return next()
     })
