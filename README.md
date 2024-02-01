@@ -43,5 +43,5 @@ npm run dev
 ## Autores
 
 
-* **Desenvolvedor Back-end** - [Gabriel Fernandes](https://github.com/Gabrielsszz)
+* **Desenvolvedor Back-end** - [Iago de Moura, Gabriel Fernandes](https://github.com/Gabrielsszz)
 * **Desenvolvedor Front-end** - [Iago de Moura](https://github.com/iagoxz)
